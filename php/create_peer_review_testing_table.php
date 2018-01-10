@@ -6,13 +6,13 @@
  */
 
 $developers = array(
-    'Alfonso',
+#    'Alfonso',
     'Danny',
-    'David',
-    'Divakar',
-    'Joshua',
-    'Rex',
-    'Rory'
+    'Lillian',
+ #   'Divakar',
+ #   'Joshua',
+ #   'Rex',
+    'Tulasi'
 );
 
 $peerreviewers = array();
@@ -38,24 +38,23 @@ foreach ($developers as $developer) {
         exit('Could not TEST tester for ' . $developer . "\n");
     }
 
-    // Generate mapping for STAGE testers.
-    $stagetester = map_developer($developer, $developers, $stagetesters,
-            array($peerreviewers, $testtesters));
-    if (!is_null($stagetester)) {
-        $stagetesters[$developer] = $stagetester;
-    } else {
-        exit('Could not STAGE tester for ' . $developer . "\n");
-    }
+    // // Generate mapping for STAGE testers.
+    // $stagetester = map_developer($developer, $developers, $stagetesters,
+    //         array($peerreviewers, $testtesters));
+    // if (!is_null($stagetester)) {
+    //     $stagetesters[$developer] = $stagetester;
+    // } else {
+    //     exit('Could not STAGE tester for ' . $developer . "\n");
+    // }
 }
 
 // Now generate HTML for table.
 $htmltable = '<table class="generaltable"><caption>Sprint</caption><thead><tr>' .
         '<th>Developer</th><th>Peer reviewer</th><th>Tester on TEST</th>' .
-        '<th>Tester on STAGE</th></tr></thead></tbody>';
+        '</tr></thead></tbody>';
 foreach ($developers as $developer) {
-    $htmltable .= sprintf('<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>',
-            $developer, $peerreviewers[$developer], $testtesters[$developer],
-            $stagetesters[$developer]);
+    $htmltable .= sprintf('<tr><td>%s</td><td>%s</td><td>%s</td></tr>',
+            $developer, $peerreviewers[$developer], $testtesters[$developer]);
 }
 $htmltable .= '</tbody></table>';
 echo $htmltable . "\n";
