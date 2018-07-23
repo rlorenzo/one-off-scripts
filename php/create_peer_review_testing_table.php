@@ -6,14 +6,18 @@
  */
 
 $developers = array(
-#    'Alfonso',
     'Danny',
+    'Rex',
     'Lillian',
- #   'Divakar',
- #   'Joshua',
- #   'Rex',
-    'Tulasi'
+    'Rohan',
+    'Tulasi',
+    'Su',
+    'Ning',
+    'Kubilay',
+    'Edwin'
 );
+
+sort($developers);
 
 $peerreviewers = array();
 $testtesters = array();
@@ -50,7 +54,7 @@ foreach ($developers as $developer) {
 
 // Now generate HTML for table.
 $htmltable = '<table class="generaltable"><caption>Sprint</caption><thead><tr>' .
-        '<th>Developer</th><th>Peer reviewer</th><th>Tester on TEST</th>' .
+        '<th>Developer</th><th>Peer reviewer</th><th>Tester</th>' .
         '</tr></thead></tbody>';
 foreach ($developers as $developer) {
     $htmltable .= sprintf('<tr><td>%s</td><td>%s</td><td>%s</td></tr>',
